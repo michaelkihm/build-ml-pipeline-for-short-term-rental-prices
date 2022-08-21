@@ -96,14 +96,19 @@ def go(config: DictConfig):
             with open(rf_config, "w+") as fp:
                 json.dump(dict(config["modeling"]["random_forest"].items()), fp)  # DO NOT TOUCH
 
-            # NOTE: use the rf_config we just created as the rf_config parameter for the train_random_forest
-            # step
-
-            ##################
-            # Implement here #
-            ##################
-
-            pass
+            _ = mlflow.run(
+                os.path.join(root_path, "src", "train_random_forest"),
+                "main",
+                parameters={
+                    "trainval_artifact": "trainval_data.csv:latest",
+                    "rf_config": rf_config,
+                    "output_artifact": "random_forest_export",
+                    "random_seed": config["modeling"]["random_seed"],
+                    "val_size": config["modeling"]["val_size"],
+                    "stratify_by": config["modeling"]["stratify_by"],
+                    "max_tfidf_features": config["modeling"]["max_tfidf_features"]
+                },
+            )
 
         if "test_regression_model" in active_steps:
 
