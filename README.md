@@ -30,6 +30,8 @@ In this project you will build such a pipeline.
   * [Release the pipeline](#release-the-pipeline)
   * [Train the model on a new data sample](#train-the-model-on-a-new-data-sample)
 - [Cleaning up](#cleaning-up)
+- [Weights and Biases project](#Weights-and-Biases-project)
+- [GitHub project](#GitHub-project)
 
 ## Preliminary steps
 ### Fork the Starter kit
@@ -567,3 +569,9 @@ you have trained your new model on the new data.
 ## License
 
 [License](LICENSE.txt)
+
+## Weights and Biases project
+https://wandb.ai/mickenhos/nyc_airbnb
+
+## GitHub project
+https://github.com/michaelkihm/build-ml-pipeline-for-short-term-rental-prices
